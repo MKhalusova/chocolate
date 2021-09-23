@@ -1,5 +1,6 @@
-from kaggle.api.kaggle_api_extended import KaggleApi
+from google_drive_downloader import GoogleDriveDownloader as gdd
 
-api = KaggleApi()
-api.authenticate()
-api.dataset_download_files('rtatman/chocolate-bar-ratings', path='data', unzip=True)
+gdd.download_file_from_google_drive(file_id='1uvnveEDqNa-Qk2qoWVv9HJ-W1jdwggeF',
+                                    dest_path='data/flavors_of_cacao.csv')
+
+
