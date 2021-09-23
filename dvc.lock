@@ -1,0 +1,38 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python get_data.py
+    deps:
+    - path: get_data.py
+      md5: debaa284f1f37f12ee186b8fa161a17b
+      size: 177
+    outs:
+    - path: data/flavors_of_cacao.csv
+      md5: 0af37357c6270a86ff11881831b7448e
+      size: 127723
+  process:
+    cmd: python prepare_data.py
+    deps:
+    - path: data/flavors_of_cacao.csv
+      md5: 0af37357c6270a86ff11881831b7448e
+      size: 127723
+    - path: prepare_data.py
+      md5: 60d8e6710a0334ad3b0703199fa5390e
+      size: 1130
+    outs:
+    - path: data/data_processed.csv
+      md5: ea55e7f8cd43fb1f79e147471e6a8c8b
+      size: 107201
+  train:
+    cmd: python train.py
+    deps:
+    - path: data/data_processed.csv
+      md5: ea55e7f8cd43fb1f79e147471e6a8c8b
+      size: 107201
+    - path: train.py
+      md5: 511ff5e2818cf1f6adf7571faf61a0fb
+      size: 1387
+    outs:
+    - path: metrics.json
+      md5: 961ad6a6b9ca0eb140a1d2ab5203df72
+      size: 62
