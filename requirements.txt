@@ -1,6 +1,7 @@
-kaggle
 pandas
 numpy
 pathlib
 scikit-learn
 category_encoders
+googledrivedownloader
+requests
