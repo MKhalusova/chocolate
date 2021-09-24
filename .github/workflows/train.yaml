@@ -1,4 +1,4 @@
-name: farmers
+name: chocolate
 on: [push]
 jobs:
   run:
